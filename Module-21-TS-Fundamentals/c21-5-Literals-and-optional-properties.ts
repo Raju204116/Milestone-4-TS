@@ -4,17 +4,33 @@
 A literal type allows a variable to have one specific value rather than any value of a general type.
 
 ➡️String literal
-let direction: "left" = "left";
-direction = "right"; // ❌ Error
-Here, direction can only contain exactly "left".
-
-
-➡️Multiple allowed values
 let direction: "left" | "right" = "left";
-direction = "right"; // ✅
-direction = "up";    // ❌ Error
+direction = "right"; // ❌ Error
 
-This is commonly used with union types.
+Here, direction can only contain exactly "left" or "right".
+let direction =variable name
+"left" | "right" =allowed values
+= "left" =initial value
+     
+
+➡️➡️Compare:
+
+let direction: string = "left";
+
+Here, any string is allowed:
+direction = "right"; // ✅
+direction = "up";    // ✅
+direction = "hello"; // ✅
+
+But:
+let direction: "left" | "right" = "left";
+
+Only these two values are allowed:
+"left"
+"right"
+
+
+
 
 ➡️Number literal
 let dice: 1 | 2 | 3 | 4 | 5 | 6 = 3;
