@@ -14,7 +14,8 @@ Primitive types represent single, simple values.
 | `symbol`    | `Symbol("id")`  |
 
 
-Key point: Primitive values are immutable and are not objects.
+📌Key point: Primitive values are immutable and are not objects.
+
 
 Examples :
 
