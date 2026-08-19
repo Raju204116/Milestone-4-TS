@@ -1,15 +1,22 @@
 /* 
 //📌📌https://phi-lab-next.vercel.app/lab/oop
 
-✅✅Loose papers, or one folder
+✅✅Formal definition : Object
+An object is a value that groups related data together as a set of key–value pairs, where each key is called a property and each property holds its own value.
+In plain words
+One box holding several labelled things. rafi.name means "open the box called rafi, read the label name". The label is the property, what is written on it is the value.
+
+
+✅Loose papers, or one folder
 Think about your own admission paperwork. Your name on one slip, your roll on another, your marks on a third, your photo somewhere in your bag.
 Nothing is wrong with that. Every piece of information exists. But the moment somebody says "pass me your file", you are in trouble — there is no file. There are five loose papers you have to gather and hope you did not miss one.
 Now picture the same five papers in a single folder with your name on it. "Pass me your file" becomes one movement. Hand it over, and everything about you goes together.
 */
 
 // A variable is a loose paper. An object is the folder.
-// ✅Five loose variables
 
+
+// ➡️Five loose variables
 let studentName = "Rafi";
 let studentRoll = 27;
 let studentBatch = "B14";
@@ -31,7 +38,7 @@ let studentPresent2 = true;
 // and no way to say "this one student".
 
 
-// ✅ One object each
+//➡️ One object each
 
 const rafi = {
   name: "Rafi",
@@ -61,15 +68,7 @@ const students = [rafi, sadia];
 
 
 
-
-
-/*📌📌https://phi-lab-next.vercel.app/lab/oop
-
-✅✅Formal definition : Object
-An object is a value that groups related data together as a set of key–value pairs, where each key is called a property and each property holds its own value.
-In plain words
-One box holding several labelled things. rafi.name means "open the box called rafi, read the label name". The label is the property, what is written on it is the value.
-
+/*
 ✅So objects solved everything? No.
 Objects fixed the grouping problem. They introduce three new ones, and every one of them is the reason the next eleven modules exist.
 

@@ -11,7 +11,7 @@ Simulation of ships in a port. (fuel, )
 //We previously learned/programming in procedural way / functional way
 //OOP-Object Oriented Programing is a way of programming
 
-An object is a value that groups related data together as a set of key–value pairs, where each key is called a property and each property holds its own value.
+
 
 ✅✅OOP has 4 pillars -i.e- oop was born to solve four problems
 1. Encapsulation
@@ -62,8 +62,9 @@ console.log(name);
 
 
 
+// ##########################################################################################
 
-//📌Details Note 
+//📌gpt Note :
 /* 
 ✅✅✅Object-Oriented Programming (OOP)
 

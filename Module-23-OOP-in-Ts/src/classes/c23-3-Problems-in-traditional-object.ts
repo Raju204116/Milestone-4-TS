@@ -19,3 +19,14 @@ console.log(rafi,sadik); //{name: 'Rafi',age: 20,email: 'rafi20@.com',marks: 100
 
 
 //✅3.We can't validate here , this is a problem
+
+
+
+
+
+
+// ##########################################################################################
+
+// gpt notes:
+
+
