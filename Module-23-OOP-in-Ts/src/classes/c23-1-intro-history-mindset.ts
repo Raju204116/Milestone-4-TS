@@ -1,5 +1,7 @@
 
 /* 
+//📌simple class notes:
+
 ✅✅History of Simula-1960-Norway
 Simulation of ships in a port. (fuel, )
 
@@ -9,11 +11,20 @@ Simulation of ships in a port. (fuel, )
 //We previously learned/programming in procedural way / functional way
 //OOP-Object Oriented Programing is a way of programming
 
+An object is a value that groups related data together as a set of key–value pairs, where each key is called a property and each property holds its own value.
+
 ✅✅OOP has 4 pillars -i.e- oop was born to solve four problems
-1.Encapsulation,
-2.Abstraction, 
-3.Inheritance, and 
-4.Polymorphism.
+1. Encapsulation
+Data এবং Behavior-কে একসাথে রাখা এবং Data-এর Access Control করা।
+
+2. Inheritance
+একটি Class-এর বৈশিষ্ট্য অন্য Class-এ Reuse করা।
+
+3. Polymorphism
+একই Interface বা Method বিভিন্ন ক্ষেত্রে বিভিন্নভাবে কাজ করতে পারা।
+
+4. Abstraction
+Complex Implementation লুকিয়ে রেখে প্রয়োজনীয় অংশটুকু সামনে রাখা।
 
 ✅✅Why was OOP introduced?
 1.Models the real world
@@ -52,7 +63,7 @@ console.log(name);
 
 
 
-//Details Note
+//📌Details Note 
 /* 
 ✅✅✅Object-Oriented Programming (OOP)
 
