@@ -29,7 +29,7 @@ Encapsulation is the name for the decision itself: choosing what stays inside an
 
 
 */
-                  
+//📌📌Among the three access modifier: we should use private in most of the cases. Rarely use public/protected         
 class bkashAccount {
     public phone:string
     private balance:number
