@@ -57,7 +57,7 @@ class Student extends User {
     private _fee :number;
 
     constructor (name:string, age:number,email:string,fee:number){
-        super(name,age,email); // accessing super class's property
+        super(name,age,email); // When a child class has a constructor, it must call:super() , before using (this).
         this._fee=fee;
     }
 
