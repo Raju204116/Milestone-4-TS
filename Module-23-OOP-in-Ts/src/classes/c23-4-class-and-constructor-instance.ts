@@ -44,7 +44,7 @@ class Student {
     marks:number=80
 }
 
-const rafi=new Student();//📌📌This is called Instantiate to create an Instance
+const rafi=new Student();//📌📌This is called Instantiate to create an Instance of Student()
 // console.log(rafi); //Student { name: 'rafi', age: 20, email: 'rafi20@gmail.com', marks: 80 }
 
 
