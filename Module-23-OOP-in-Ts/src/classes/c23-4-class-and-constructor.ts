@@ -1,6 +1,7 @@
 
 //✅✅✅ Class, instance and constructor
-/* 
+/*📌📌https://phi-lab-next.vercel.app/lab/oop/class-constructor
+
 ✅A class is a blueprint that declares what fields its objects will have. 
 ✅An instance is one object created from that class with the (new) keyword.
 ✅A constructor is the block that a class runs exactly once per instance, to give that instance its starting values.
@@ -57,7 +58,8 @@ class Student2 {
     email:string
     marks:number
 
-    constructor (name:string,age:number,email:string,marks:number){ //this parameters will receive real value from the instance
+    //constructor-->a special method to receive userInput (from Instance)
+    constructor (name:string,age:number,email:string,marks:number){ 
         this.name=name  //this.name means the declared name,  and  (=name ) means the receiving name value from the instance
         this.age=age
         this.email=email
@@ -69,10 +71,10 @@ const rafi2=new Student2("Rafi",20,"rafi@gmail.com",80);
 console.log(rafi2); //Student2 { name: 'Rafi', age: 20, email: 'rafi@gmail.com', marks: 80 }
 
 const sadik=new Student2("Sadik",22,"sadik@gmail.com",90);
-console.log(sadik);
+console.log(sadik); //Student2 { name: 'Sadik', age: 22, email: 'sadik@gmail.com', marks: 90 }
 
 
-// 📌📌 This is showing same as function-object (class-23-3), 
+// 📌📌 This is looking same as function-object (class-23-3), 
 // but there is a huge difference in structure and security
 
 

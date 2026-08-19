@@ -5,8 +5,8 @@
 const  createStudent =(name:string,age:number,email:string,marks:number)=>{
     // const obj={name,age,email,marks};
 
-    const obj={name,age,email,marks, forgotPass(){}} ; //✅1.everytime memory will be occupied by the forgot function and this is a problem
-    return obj;
+    const obj={name,age,email,marks, forgotPass(){}} ; //✅1.everytime when I wiil call the obj, memory will allocate space for the forgotPass function and this is a problem
+    return obj;                                         //see its solution at 22-5-method
 }
 
 const rafi=createStudent("Rafi",20,"rafi20@.com",100); 
