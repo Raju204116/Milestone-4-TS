@@ -6,7 +6,7 @@ const  createStudent =(name:string,age:number,email:string,marks:number)=>{
     // const obj={name,age,email,marks};
 
     const obj={name,age,email,marks, forgotPass(){}} ; //✅1.everytime when I wiil call the obj, memory will allocate space for the forgotPass function and this is a problem
-    return obj;                                         //see its solution at 22-5-method
+    return obj;                                         //see its solution in class 22-5-method
 }
 
 const rafi=createStudent("Rafi",20,"rafi20@.com",100); 
@@ -17,7 +17,7 @@ const sadik=createStudent("sadik",25,"aaaa@gmail", 80);
 console.log(rafi,sadik); //{name: 'Rafi',age: 20,email: 'rafi20@.com',marks: 100,forgotPass: [Function: forgotPass]}
 
 
-//✅3.We can't validate here , this is a problem
+//✅3.We can't validate here , this is a problem  //see solution in class -22-6-Encapsulation
 
 
 
