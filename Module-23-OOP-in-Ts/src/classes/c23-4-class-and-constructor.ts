@@ -22,7 +22,6 @@ The clerk who writes in the boxes is the constructor.
 That is the entire module. The rest is spelling.
 
 
-
 ✅✅Quick Revision
 
 | Concept         | Meaning                                     |
@@ -75,6 +74,8 @@ console.log(sadik);
 
 // 📌📌 This is showing same as function-object (class-23-3), 
 // but there is a huge difference in structure and security
+
+
 
 
 

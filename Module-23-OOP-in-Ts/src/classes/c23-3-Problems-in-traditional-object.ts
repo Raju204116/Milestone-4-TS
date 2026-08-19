@@ -1,5 +1,5 @@
 
-//✅✅We can create reusable Object using function
+//✅✅We can create reusable Object using function.
 //But still there are problems :
 
 const  createStudent =(name:string,age:number,email:string,marks:number)=>{

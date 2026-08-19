@@ -92,10 +92,13 @@ One place that says, once: "every rickshaw has these properties and can do these
 
 It is called a class, and it is what modules 0 and 1 build up to — first why it is worth having, then how to write one.
 
+*/
+
+
+
+
 
 
 // ########################################⭐⭐⭐⭐⭐⭐⭐###########################################
-
 //📌no need of gpt note
 
-*/
