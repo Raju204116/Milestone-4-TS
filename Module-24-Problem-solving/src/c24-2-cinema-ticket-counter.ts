@@ -61,19 +61,15 @@ getTicketPrice(65);// 120
 
 function getTicketPrice(age:number):number  {
  
-    let price:number=0;
     if(age<5){
-        price=0;
+        return 0;
     }else if(age<13){
-        price=100;
+        return 100;
     }else if (age<60){
-        price =200;
-    }else{
-        price=120;
+        return 200;
     }
         
-    
-    return price;
+    return 120;
  
 }
 console.log(getTicketPrice(3));// 0
