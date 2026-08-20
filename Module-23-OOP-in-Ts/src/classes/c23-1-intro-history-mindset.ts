@@ -51,7 +51,7 @@ To create tsconfig : npx tsc--init
 To convert ts to js : tsc 
 To run file : node ./dist/classes/index.js
 
-To run without converting/tsc => install : npm i -g tsx
+To run without converting/tsc - install => npm i -g tsx
 then only type everytime :  tsx ./src/classes/index.ts
 
 
