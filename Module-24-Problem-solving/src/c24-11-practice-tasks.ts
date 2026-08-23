@@ -202,7 +202,18 @@ formatPlayerCard({
 */
 
 
+type Player ={
+    username: string
+    level: number
+    region: string
+}
+ 
+function formatPlayerCard(player: Player): string {
+ 
+    return `${player.username} is a Level ${player.level} player from ${player.region}.`
+}
 
+// console.log(formatPlayerCard({username: "ShadowByte",level: 42, region: "Asia"}));
 
 
 
@@ -216,7 +227,9 @@ Concepts: object types, array types, reduce(), function parameter and return typ
 Function name must be: calculateTotalListeningTime
 
 Scenario
-A music streaming app wants to show users their yearly "Wrapped" summary — the total number of minutes they've listened to, based on an array of tracks they've played.
+A music streaming app wants to show users their yearly "Wrapped" summary — the total number of minutes they've listened to, 
+based on an array of tracks they've played.
+
 Track Structure
 {
     title: string;
@@ -258,10 +271,34 @@ const tracks2 = [
  
 calculateTotalListeningTime(tracks2);
 // 7
-
-
-
 */
+
+type Track={
+    title: string;
+    minutes: number;
+}
+
+function calculateTotalListeningTime(tracks: Track[]): number {
+    //here I haven't check the array length, but the track3 working well for empty array[]. 
+    //It's working because the initial value of the reduce (0) is doing this validation automatically.
+    return tracks.reduce((sum,item)=>sum+item.minutes,0)
+}
+
+const tracks = [
+    { title: "Blinding Lights", minutes: 3 },
+    { title: "Levitating", minutes: 4 },
+    { title: "Peaches", minutes: 3 }
+];
+// console.log(calculateTotalListeningTime(tracks));//10
+
+const tracks2 = [
+    { title: "Flowers", minutes: 3 },
+    { title: "Anti-Hero", minutes: 4 }
+];
+// console.log(calculateTotalListeningTime(tracks2));//7
+
+const track3:Track[]=[];
+// console.log(calculateTotalListeningTime(track3));//0
 
 
 
@@ -274,7 +311,10 @@ Concepts: nested arrays, object types, reduce(), return object types, conditiona
 Function name must be: getPlayerStats
 
 Scenario
-A tournament platform stores each player's match scores in an array. Organizers want a quick summary with the player's name, average score, and rank tier. A player is ranked MVP if their average score is at least 80, otherwise Rookie.
+A tournament platform stores each player's match scores in an array. Organizers want a quick summary 
+with the player's name, average score, and rank tier. A player is ranked MVP if their average score is 
+at least 80, otherwise Rookie.
+
 Player Structure
 {
     name: string;
@@ -282,7 +322,8 @@ Player Structure
 }
 
 Task
-Create a function named getPlayerStats. The function should receive a player object, calculate the average of all scores, determine the rank, and return a new object containing name, average, and rank.
+Create a function named getPlayerStats. The function should receive a player object, calculate 
+the average of all scores, determine the rank, and return a new object containing name, average, and rank.
 
 Edge Case
 Think about what your function should do if the scores array is empty.
@@ -316,13 +357,52 @@ getPlayerStats({
 
 
 */
+type Players={
+    name: string;
+    scores: number[];
+}
+
+type SummaryCard={
+     name: string; 
+     average: number;
+     rank: string 
+}
+
+
+function getPlayerStats(player: Players): SummaryCard {
+    
+    const scores:number[]=player.scores; //since reduce is an array method that's why it will not work directly for player Object.
+    const totalScore=scores.reduce((sum,item)=>sum + item);
+    
+    let avg=0;
+    if(scores.length !==0){
+         avg=totalScore/scores.length;
+    }
+
+    const rank= avg>=80 ? "MVP" : "Rookie";
+
+    return {
+        name:player.name,
+        average:avg,
+        rank:rank
+    }
+ 
+}
+console.log(getPlayerStats({name: "Nova",scores: [90, 85, 95, 80]}));
+// { name: "Nova", average: 87.5, rank: "MVP" }
+
+console.log(getPlayerStats({
+    name: "Zex",
+    scores: [60, 55, 70, 50]
+}));
+// { name: "Zex", average: 58.75, rank: "Rookie" }
+
+
 
 
 
 
 /*  
-
-
 ✅Problem 6 — Music App Feature Access
 Concepts: union types, literal types, function parameter types, type safety
 Function name must be: canAccessOfflineMode

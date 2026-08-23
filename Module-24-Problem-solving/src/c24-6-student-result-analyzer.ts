@@ -63,10 +63,14 @@ interface Result{
 
 function getStudentResult(student:Student):Result{
 
-    const marks:number[]=student.marks;
+    const marks:number[]=student.marks;//since reduce is an array method that's why it will not work directly for student Object.
     const totalMarks= marks.reduce((sum,mark)=>sum+mark,0);
 
-    const avg=totalMarks/marks.length;
+    let avg=0;
+    if(marks.length !==0){
+         avg=totalMarks/marks.length;
+    }
+   
     const result= avg>=40 ?"Passed" : "Failed";
 
     return {
