@@ -22,21 +22,16 @@ Task
 Create a function named getBatteryStatus. The function receives the battery percentage (0–100) and returns a status string.
 
 Status Rules
-Percentage
-Status
-0–20
-"Low"
-21–50
-"Medium"
-51–90
-"High"
-91–100
-"Full"
+Percentage           Status
+0–20                "Low"
+21–50               "Medium"
+51–90               "High"
+91–100              "Full"
 
 
 Function Requirement
-Accept the percentage as a number.
-Return the status as a string.
+    Accept the percentage as a number.
+    Return the status as a string.
 
 Starter Code
 function getBatteryStatus(percentage: <type>): <type> {
@@ -45,19 +40,34 @@ function getBatteryStatus(percentage: <type>): <type> {
 
 
 Test Cases
-Input
-Output
-10
-"Low"
-35
-"Medium"
-75
-"High"
-100
-"Full"
-
-
-
+Input       Output
+10          "Low"
+35         "Medium"
+75          "High"
+100         "Full"
 
 
 */
+
+function getBatteryStatus(percentage: number):string {
+    
+    if(percentage <0 || percentage >100){
+        return "Invalid Percentage";
+    }
+
+    if(percentage >=0 && percentage<=20){
+        return "Low";
+    }else if( percentage<=50){
+        return "Medium";
+    }else if( percentage<=90){
+        return "High";
+    }else {
+        return "Full";
+    }
+}
+console.log(getBatteryStatus(10)); //Low
+console.log(getBatteryStatus(35)); //Medium
+console.log(getBatteryStatus(75)); //High
+console.log(getBatteryStatus(100)); //Full
+
+
