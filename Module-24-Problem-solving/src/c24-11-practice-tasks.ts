@@ -368,7 +368,6 @@ type SummaryCard={
      rank: string 
 }
 
-
 function getPlayerStats(player: Players): SummaryCard {
     
     const scores:number[]=player.scores; //since reduce is an array method that's why it will not work directly for player Object.
@@ -388,16 +387,11 @@ function getPlayerStats(player: Players): SummaryCard {
     }
  
 }
-console.log(getPlayerStats({name: "Nova",scores: [90, 85, 95, 80]}));
+// console.log(getPlayerStats({name: "Nova",scores: [90, 85, 95, 80]}));
 // { name: "Nova", average: 87.5, rank: "MVP" }
 
-console.log(getPlayerStats({
-    name: "Zex",
-    scores: [60, 55, 70, 50]
-}));
+// console.log(getPlayerStats({name: "Zex",scores: [60, 55, 70, 50]}));
 // { name: "Zex", average: 58.75, rank: "Rookie" }
-
-
 
 
 
@@ -408,10 +402,12 @@ Concepts: union types, literal types, function parameter types, type safety
 Function name must be: canAccessOfflineMode
 
 Scenario
-A music streaming app has three subscription tiers: free, pro, and premium. Only pro and premium subscribers are allowed to download songs for offline listening.
+A music streaming app has three subscription tiers: free, pro, and premium. Only pro and
+premium subscribers are allowed to download songs for offline listening.
 
 Task
-First create a union type Tier, then create a function named canAccessOfflineMode that receives a valid Tier and returns whether that tier can use offline mode.
+First create a union type Tier, then create a function named canAccessOfflineMode that 
+receives a valid Tier and returns whether that tier can use offline mode.
 
 Rules
 Tier            Offline Access?
@@ -420,8 +416,8 @@ pro                 true
 premium             true
 
 TypeScript Requirement
-This should produce a TypeScript error — canAccessOfflineMode("student") — since the purpose is to make TypeScript restrict
-the function to known tiers.
+This should produce a TypeScript error — canAccessOfflineMode("student") — since the purpose is 
+to make TypeScript restrict the function to known tiers.
 
 
 Starter Code
@@ -442,24 +438,42 @@ canAccessOfflineMode("pro");
 canAccessOfflineMode("premium");
 // true
 
-
 */
+
+
+type Tier = "free" | "pro" | "premium";
+ 
+function canAccessOfflineMode(tier: Tier):boolean {
+ 
+    if(tier==="free"){
+        return false;
+    }else if(tier==="pro"){
+        return true;
+    }else {
+        return true;
+    }
+    
+}
+// console.log(canAccessOfflineMode("free"));// false
+// console.log(canAccessOfflineMode("pro"));// true
+// console.log(canAccessOfflineMode("premium"));// true
+
 
 
 
 
 /*  
-
-
 ✅Problem 7 — Food Delivery Menu Filter
 Concepts: typed arrays, object types, function parameters, filter(), return types
 Function name must be: findMenuItemsByTag
 
 Scenario
-A food delivery app lets customers filter a restaurant's menu by a dietary tag, such as "vegan" or "spicy". Each menu item has a name, price, and a tag.
+A food delivery app lets customers filter a restaurant's menu by a dietary tag, such as "vegan" or "spicy". 
+Each menu item has a name, price, and a tag.
 
 Task
-Create a function named findMenuItemsByTag. The function should receive an array of menu items and a tag, and return all items that match that tag.
+Create a function named findMenuItemsByTag. The function should receive an array of menu items and a tag, 
+and return all items that match that tag.
 
 Requirement
 If no item matches the tag, return an empty array.
@@ -486,8 +500,54 @@ findMenuItemsByTag(menu, "vegan");
 findMenuItemsByTag(menu, "gluten-free");
 // returns an empty array
 
-
 */
+
+type MenuItem ={
+    name: string,
+    price: number, 
+    tag: string 
+}
+
+
+function findMenuItemsByTag(menu: MenuItem[], tag: string):MenuItem[] {
+ 
+    // let tagItems:MenuItem[]=[];
+    // if(tag==="vegan"){
+    //     tagItems= menu.filter((item)=>item.tag==="vegan");
+    // }else if(tag==="spicy"){
+    //     tagItems =menu.filter((item)=>item.tag==="spicy");
+    // }
+    // return tagItems;
+
+
+    //another way
+    // if(tag==="vegan"){
+    //     return menu.filter((item)=>item.tag==="vegan");
+    // }else if(tag==="spicy"){
+    //    return menu.filter((item)=>item.tag==="spicy");
+    // }else {
+        // return [];
+    // }
+    // 
+
+
+    //shorthand code
+    return menu.filter((item)=>item.tag===tag);
+
+
+}
+const menu = [
+    { name: "Veggie Bowl", price: 350, tag: "vegan" },
+    { name: "Tofu Wrap", price: 300, tag: "vegan" },
+    { name: "Chicken Wings", price: 450, tag: "spicy" },
+    { name: "Beef Burger", price: 500, tag: "spicy" }
+];
+// console.log(findMenuItemsByTag(menu, "vegan"));// returns the Veggie Bowl and Tofu Wrap objects
+// console.log(findMenuItemsByTag(menu, "spicy"));// returns the Chicken Wings and Beef Burger Wrap objects
+// console.log(findMenuItemsByTag(menu, "gluten-free"));// returns an empty array
+
+
+
 
 
 
@@ -499,7 +559,9 @@ Concepts: union types, optional properties, type narrowing, discriminated unions
 Function name must be: renderNotification
 
 Scenario
-A social app's notification center receives two kinds of notifications: a like notification (someone liked your post) and a system notification (an announcement from the app). Each needs to be rendered as a different message.
+A social app's notification center receives two kinds of notifications: a like notification (someone liked your 
+post) and a system notification (an announcement from the app). Each needs to be rendered as a different message.
+
 Like Notification
 {
     type: "like",
@@ -514,7 +576,8 @@ System Notification
 The actionUrl field is optional — a system notification may or may not include it.
 
 Task
-Create a function named renderNotification. The function should receive either a like notification or a system notification and return the rendered message string.
+Create a function named renderNotification. The function should receive either a like notification or 
+a system notification and return the rendered message string.
 
 Rules
     A like notification renders as: "<fromUser> liked your post."
@@ -522,7 +585,8 @@ Rules
     If a system notification has an actionUrl, append " (Tap to view)" to the end of the message.
 
 TypeScript Requirement
-Use a discriminated union (based on the type field) so TypeScript can correctly narrow between the two notification shapes.
+Use a discriminated union (based on the type field) so TypeScript can correctly narrow between 
+the two notification shapes.
 
 
 Starter Code
@@ -544,21 +608,59 @@ renderNotification({ type: "system", message: "Maintenance complete." });
 renderNotification({ type: "system", message: "Your subscription is expiring soon.", actionUrl: "/billing" });
 // "System: Your subscription is expiring soon. (Tap to view)"
 
-
 */
+
+
+type LikeNotification={
+    type: "like"
+    fromUser: string
+}
+type SystemNotification={
+    type: "system"
+    message: string,
+    actionUrl ?: string
+}
+
+function renderNotification(notification: LikeNotification | SystemNotification):string {
+ 
+    if(notification.type==="like" ){
+        return `${notification.fromUser} liked your post.` ;
+    } 
+    // if( notification.actionUrl){
+    //     return `System: ${notification.message} (Tap to view)` ;
+    // }
+    
+    // return `System:${notification.message}`;
+
+    //shorthand code
+    return notification.actionUrl ? `System: ${notification.message} (Tap to view)`   :   `System:${notification.message}`;
+ 
+}
+
+
+// console.log(renderNotification({ type: "like", fromUser: "Aisha" }));
+// // "Aisha liked your post."
+// console.log( renderNotification({ type: "system", message: "Maintenance complete." }));
+// // "System: Maintenance complete."
+ 
+// console.log(renderNotification({ type: "system", message: "Your subscription is expiring soon.", actionUrl: "/billing" }));
+// // "System: Your subscription is expiring soon. (Tap to view)"
+
+
 
 
 
 
 /*  
 
-
 ✅Problem 9 — Cloud Storage Usage Tracker
 Concepts: union types, discriminated unions, type narrowing, object types, return types, conditional logic
 Function name must be: updateStorageUsage
 
 Scenario
-A cloud storage app, similar to Google Drive, tracks how much storage a user has used. Every action a user takes is either an upload or a delete.
+A cloud storage app, similar to Google Drive, tracks how much storage a user has used. Every action a user takes 
+is either an upload or a delete.
+
 Upload Action
 {
     type: "upload",
@@ -571,7 +673,8 @@ Delete Action
 }
 
 Task
-Create a function named updateStorageUsage. It should receive the current storage used (in MB) and an action, and return the new storage usage.
+Create a function named updateStorageUsage. It should receive the current storage used (in MB) and an action,
+and return the new storage usage.
 
 Rules
     An upload increases the usage.
@@ -579,7 +682,8 @@ Rules
     Usage can never go below 0 — if a delete would take it below 0, the result should just be 0.
 
 TypeScript Requirement
-Represent the two possible action shapes using TypeScript's type system. The function should not accept arbitrary action types.
+Represent the two possible action shapes using TypeScript's type system. The function should not accept
+arbitrary action types.
 
 Starter Code
 // TODO: define types for UploadAction and DeleteAction
@@ -601,16 +705,58 @@ updateStorageUsage(300, { type: "delete", sizeMB: 1000 });
 // 0
 */
 
+type UploadAction={
+    type: "upload",
+    sizeMB: number
+}
+
+type DeleteAction={
+    type: "delete",
+    sizeMB: number
+}
+
+function updateStorageUsage(currentUsageMB: number, action: UploadAction | DeleteAction): number {
+ 
+   if(action.type==="upload"){
+    return currentUsageMB+action.sizeMB;
+   }
+
+   if(action.sizeMB>currentUsageMB){
+        return 0;
+   }else{
+        return currentUsageMB -action.sizeMB
+   }
+   
+   //shorthand
+    // return Math.max(0, currentUsageMB - action.sizeMB); //Math.max(0, 300 - 1000) =>Math.max(0, -700) =>0
+}
+
+// console.log(updateStorageUsage(2000, { type: "upload", sizeMB: 500 }));// 2500
+// console.log(updateStorageUsage(2000, { type: "delete", sizeMB: 800 }));// 1200
+ 
+// // usage floor at zero:
+// console.log(updateStorageUsage(300, { type: "delete", sizeMB: 1000 }));// 0
+
+
+
+
+
+
+
+
+
 
 
 
 /*  
 ✅Problem 10 — EV Scooter Rental Fee Calculator
-Concepts: union types, function parameter types, return types, type narrowing, object-based configuration, conditional logic
+Concepts: union types, function parameter types, return types, type narrowing, object-based configuration, 
+conditional logic
 Function name must be: calculateRentalFee
 
 Scenario
-A micromobility rental app offers three vehicle types: scooter, e-bike, and moped. The rental fee depends on the vehicle type and how many minutes it was rented for.
+A micromobility rental app offers three vehicle types: scooter, e-bike, and moped. The rental fee depends on 
+the vehicle type and how many minutes it was rented for.
 
 Pricing     VehicleUnlockFee        Cost per Minute
 scooter             10                   2 
@@ -620,13 +766,16 @@ moped               25                   5
 The final fee is calculated using: Final Fee = Unlock Fee + (Minutes × Cost per Minute)
 
 Task
-Create a function named calculateRentalFee. The function should receive a vehicle type and the rental duration in minutes, and return the calculated fee.
+Create a function named calculateRentalFee. The function should receive a vehicle type and the rental duration 
+in minutes, and return the calculated fee.
 
 TypeScript Requirement
-Create a union type so that only "scooter" | "ebike" | "moped" are accepted. This should be rejected by TypeScript: calculateRentalFee("bike", 20).
+Create a union type so that only "scooter" | "ebike" | "moped" are accepted. This should be rejected by 
+TypeScript: calculateRentalFee("bike", 20).
 
 Additional Challenge
-Consider what should happen when minutes is 0. Your function should still return a valid number based on your chosen interpretation of the pricing rules.
+Consider what should happen when minutes is 0. Your function should still return a valid number based on your 
+chosen interpretation of the pricing rules.
 
 Starter Code
 type VehicleType = "scooter" | "ebike" | "moped";
@@ -646,13 +795,24 @@ calculateRentalFee("ebike", 20);
 calculateRentalFee("moped", 20);
 // 125   (25 + 20 x 5)
 
-
-
-
-
-
-
-
-
-
 */
+
+
+
+type VehicleType = "scooter" | "ebike" | "moped";
+ 
+function calculateRentalFee(vehicle: VehicleType, minutes: number): number {
+ 
+    if(vehicle==="scooter"){
+        return 10 + minutes*2;
+    }else  if(vehicle==="ebike"){
+        return 15 + minutes*3;
+    }else{
+        return 25 + minutes*5;
+    }
+
+}
+
+console.log(calculateRentalFee("scooter", 20));// 50    (10 + 20 x 2)
+console.log(calculateRentalFee("ebike", 20));// 75    (15 + 20 x 3)
+console.log(calculateRentalFee("moped", 20));// 125   (25 + 20 x 5)
