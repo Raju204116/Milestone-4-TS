@@ -13,10 +13,11 @@ function
 
 
 ➡️object
-let user: object = {
+
+let student:{name:string,age:number}={
     name: "Raju",
     age: 25
-};
+}
 
 ➡️array
 let numbers: number[] = [10, 20, 30, 40];
